@@ -110,9 +110,17 @@
       {{ theme.links_settings.title }}
     </div>
     <ul class="links-of-blogroll-list">
-      {%- for blogrollText, blogrollURL in theme.links %}
+      {# ?????????? #}
+      {%- for index, item in theme.links %}
         <li class="links-of-blogroll-item">
-          {{ next_url(blogrollURL, blogrollText, {title: blogrollURL}) }}
+          <a href="{{ item.url }}" {%- if item.description %} title="{{ item.description }}" {%- endif %}  target="_blank">
+            {%- if item.ico %}
+              <img src="{{ url_for(item.ico) }}" class="links-item-img">&emsp;
+            {%- else %}
+              <i class="icon-link icon"></i>
+            {%- endif %}
+            {{ item.name }}
+          </a>
         </li>
       {%- endfor %}
     </ul>
