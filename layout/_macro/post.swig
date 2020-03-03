@@ -215,6 +215,15 @@
       {{ partial('_partials/post/post-related.swig') }}
     {%- endif %}
 
+    {### Article END Message ###}
+    <div>
+      {% if theme.page_end_tag and theme.page_end_tag.enable and not is_index %}
+        <div style="text-align:center;color: red;font-size:14px;">
+          -------------   本文已结束  <i class="fa fa-paw"></i>  感谢您的阅读！  -------------
+        </div>
+      {% endif %}
+    </div>
+
     {%- if not is_index %}
       {{- next_inject('postBodyEnd') }}
 
@@ -225,6 +234,13 @@
       {%- if theme.creative_commons.license and theme.creative_commons.post %}
         {{ partial('_partials/post/post-copyright.swig') }}
       {%- endif %}
+
+      {# 自定义版权说明 #}
+      {% if theme.post_copyright.enable and not is_index %}
+      <div>
+        {{ partial('my-copyright.swig') }}
+      </div>
+      {% endif %}
 
       {%- if theme.follow_me %}
         {{ partial('_partials/post/post-followme.swig', {}, {cache: theme.cache.enable}) }}
