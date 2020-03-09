@@ -5,22 +5,23 @@
     <span class="toggle-line toggle-line-last"></span>
   </div>
 
-  <div class="my-tag-cloud">
-    {% if site.tags.length > 1 %}
-      <script type="text/javascript" charset="utf-8" src="{{ url_for('/js/tagcloud.js') }}"></script>
-      <script type="text/javascript" charset="utf-8" src="{{ url_for('/js/tagcanvas.js') }}"></script>
-      <div class="widget-wrap">
-        <h3 class="widget-title">Tag Cloud</h3>
-        <div id="myCanvasContainer" class="widget tagcloud">
-          <canvas width="250" height="250" id="resCanvas" style="width:100%">
-            {{ list_tags() }}
-          </canvas>
-        </div>
-      </div>
-    {% endif %}
-  </div>
-
   <aside class="sidebar">
+
+    {# 标签云 #}
+    <div class="my-tag-cloud">
+      {% if site.tags.length > 1 %}
+        <script type="text/javascript" charset="utf-8" src="{{ url_for('/js/tagcloud.js') }}"></script>
+        <script type="text/javascript" charset="utf-8" src="{{ url_for('/js/tagcanvas.js') }}"></script>
+        <div class="widget-wrap">
+          <h3 class="widget-title">Tag Cloud</h3>
+          <div id="myCanvasContainer" class="widget tagcloud">
+            <canvas width="250" height="250" id="resCanvas" style="width:100%">
+              {{ list_tags() }}
+            </canvas>
+          </div>
+        </div>
+      {% endif %}
+    </div>
 
     <div class="sidebar-inner">
 
