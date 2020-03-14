@@ -50,12 +50,14 @@
         </ul>
         <div class="tab-content">
           {%- for inject_item in theme.injects.comment %}
+
             <div class="tab-pane {{ inject_item.locals.class }}" id="comment-{{ inject_item.locals.class }}">
               {{ partial(inject_item.layout, inject_item.locals, inject_item.options) }}
             </div>
           {%- endfor %}
         </div>
       </div>
+
     {%- endif %}
   {%- endif %}
 {%- endif %}

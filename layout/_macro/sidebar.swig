@@ -6,7 +6,6 @@
   </div>
 
   <aside class="sidebar">
-
     {# 标签云 #}
     <div class="my-tag-cloud">
       {% if site.tags.length > 1 %}
